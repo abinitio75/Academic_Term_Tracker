@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Term_Tracker.EditCoursePage"
+             NavigationPage.HasNavigationBar="True">
+    
+    <ContentPage.Content>
+
+        <FlexLayout AlignContent="SpaceBetween" JustifyContent="SpaceBetween" AlignItems="Stretch" Direction="Column">
+            <!-- allows scrolling -->
+            <ScrollView>
+
+                <StackLayout>
+                    <!-- title entry -->
+                    <Entry x:Name="title" Placeholder="Course Title" MaxLength="50"/>
+                    <!-- start and end date pickers -->
+                    <DatePicker x:Name="start"/>
+                    <Label Text="Start"/>
+
+                    <DatePicker x:Name="end"/>
+                    <Label Text="End"/>
+                    <!-- status picker -->
+                    <Picker x:Name="status" Title="Status" SelectedItem="In Progress">
+                        <Picker.Items>
+                            <x:String>Plan to Take</x:String>
+                            <x:String>In Progress</x:String>
+                            <x:String>Dropped</x:String>
+                            <x:String>Completed</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <!-- notification checkbox -->
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="notify" IsChecked="True"/>
+                        <Label Text="Course Date Notifications" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <!-- instructor info entries -->
+                    <Entry x:Name="instName" Placeholder="Instructor Name" MaxLength="30"/>
+                    <Entry x:Name="instNumber" Placeholder="Instructor Phone Number" MaxLength="14"/>
+                    <Entry x:Name="instEmail" Placeholder="Instructor Email" MaxLength="30"/>
+
+                </StackLayout>
+
+            </ScrollView>
+            <!-- button -->
+            <StackLayout Margin="10" FlexLayout.AlignSelf="Center">
+
+                <Button Text="Save" Clicked="BtnSave_Clicked" CornerRadius="30" WidthRequest="150" HeightRequest="40"/>
+
+            </StackLayout>
+
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>

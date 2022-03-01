@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Academic_Term_Tracker.EditTermPage"
+             NavigationPage.HasNavigationBar="True">
+    
+    <ContentPage.Content>
+
+        <FlexLayout AlignContent="Center" JustifyContent="SpaceBetween" Direction="Column" Margin="5" AlignItems="Stretch" Position="Relative">
+
+            <StackLayout FlexLayout.AlignSelf="Stretch">
+                <!-- title entry -->
+                <Entry x:Name="title" Placeholder="Term Title" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MaxLength="25"/>
+                <!-- start and end date pickers -->
+                <DatePicker x:Name="start" Margin="0,10,0,0" VerticalOptions="FillAndExpand"/>
+                <Label Text="Start"/>
+
+                <DatePicker x:Name="end" Margin="0,10,0,0" VerticalOptions="FillAndExpand"/>
+                <Label Text="End"/>
+
+            </StackLayout>
+            <!-- button -->
+            <StackLayout FlexLayout.AlignSelf="Center" Margin="5">
+
+                <Button Text="Save" Clicked="BtnSave_Clicked" CornerRadius="30" WidthRequest="150" HeightRequest="40"/>
+
+            </StackLayout>
+            
+        </FlexLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

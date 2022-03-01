@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Term_Tracker.EditAssessmentsPage"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+
+        <FlexLayout AlignContent="Center" Direction="Column" JustifyContent="SpaceBetween" Padding="5" AlignItems="Stretch" Position="Relative">
+            <!-- allows form to be scrolled -->
+            <ScrollView VerticalOptions="StartAndExpand" FlexLayout.Shrink="20" VerticalScrollBarVisibility="Always">
+                <!-- holds forms -->
+                <StackLayout>
+                    <!-- title entry -->
+                    <Entry x:Name="asmt1Title" Placeholder="Assessment Title" MaxLength="25"/>
+                    <!-- notification checkbox -->
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+                        <CheckBox x:Name="notify1" IsChecked="True"/>
+                        <Label Text="Assessment Notifications" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <!-- assessment type picker -->
+                    <Picker x:Name="type1" Title="Assessment Type" SelectedItem="Objective Assessment" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Objective Assessment</x:String>
+                            <x:String>Performance Assessment</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <!-- assessment date picker -->
+                    <DatePicker x:Name="start1"/>
+                    <Label Text="Start"/>
+                    <DatePicker x:Name="end1"/>
+                    <Label Text="End"/>
+                    <!-- title entry -->
+                    <Entry x:Name="asmt2Title" Placeholder="Assessment Title" MaxLength="25"/>
+                    <!-- notification checkbox -->
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="notify2" IsChecked="True"/>
+                        <Label Text="Assessment Notifications" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <!-- assessment type picker -->
+                    <Picker x:Name="type2" Title="Assessment Type" SelectedItem="Performance Assessment" SelectedIndex="1">
+                        <Picker.Items>
+                            <x:String>Objective Assessment</x:String>
+                            <x:String>Performance Assessment</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <!-- assessment date picker -->
+                    <DatePicker x:Name="start2"/>
+                    <Label Text="Start"/>
+                    <DatePicker x:Name="end2"/>
+                    <Label Text="End"/>
+
+                </StackLayout>
+
+            </ScrollView>
+            <!-- button -->
+            <StackLayout Padding="10" FlexLayout.AlignSelf="Center">
+
+                <Button Text="Save" Clicked="BtnSave_Clicked" CornerRadius="30" Padding="10"/>
+
+            </StackLayout>
+            
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>

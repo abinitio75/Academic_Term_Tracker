@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Term_Tracker.TermPage"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+
+        <FlexLayout AlignContent="Center" JustifyContent="SpaceBetween" Direction="Column" AlignItems="Stretch">
+
+            <StackLayout BackgroundColor="Gray" FlexLayout.Basis="9%">
+                <!-- displays current selected term start and end dates -->
+                <StackLayout Orientation="Horizontal" Spacing="20" FlexLayout.AlignSelf="Center" HorizontalOptions="Center">
+
+                    <Label x:Name="termStart" HorizontalOptions="Center" TextColor="BlanchedAlmond"/>
+                    <Label x:Name="termEnd" HorizontalOptions="Center" TextColor="BlanchedAlmond"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <!-- displays layout columns for course title, start, and end -->
+                    <Label HorizontalTextAlignment="Center" TextColor="White" HorizontalOptions="FillAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString >
+                                <Span Text="Course Title" CharacterSpacing="2"/>
+                                <Span Text="    |   "/>
+                                <Span Text="Start Date" CharacterSpacing="2"/>
+                                <Span Text="    |   "/>
+                                <Span Text="End Date" CharacterSpacing="2"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <ScrollView VerticalScrollBarVisibility="Always" FlexLayout.Basis="67%" FlexLayout.Shrink="20" Padding="5">
+
+                <StackLayout HeightRequest="500">
+                    <!-- displays courses associated with term -->
+                    <ListView x:Name="course_view" ItemTapped="CourseTapped" SeparatorColor="Black" SeparatorVisibility="Default"
+                              HasUnevenRows="True" RowHeight="20">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="True">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Spacing="10" VerticalOptions="CenterAndExpand" Margin="2,5,2,5" Padding="10">
+                                        <Label Text="{Binding Title}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Black" LineBreakMode="WordWrap" MaxLines="5" WidthRequest="100"/>
+                                        <Label Text="{Binding Start, StringFormat='{}{0:M/d}'}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="Black" LineBreakMode="WordWrap"/>
+                                        <Label Text="{Binding End, StringFormat='{}{0:M/d}'}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="Black" LineBreakMode="WordWrap"/>
+                                        <Label Text="{Binding Status}" TextColor="Black" VerticalOptions="Center" HorizontalOptions="EndAndExpand" LineBreakMode="WordWrap"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+                
+            </ScrollView>
+            <!-- buttons -->
+            <StackLayout FlexLayout.AlignSelf="Center" Spacing="5" Padding="5" FlexLayout.Basis="24%">
+
+                <Button CornerRadius="30" Text="Add Course" WidthRequest="150" HeightRequest="40" Clicked="BtnAddCourse_Clicked"/>
+                <Button CornerRadius="30" Text="Edit Term" WidthRequest="150" HeightRequest="40" Clicked="BtnEditTerm_Clicked"/>
+                <Button CornerRadius="30" Text="Delete Term" WidthRequest="150" HeightRequest="40" Clicked="BtnDeleteTerm_Clicked"/>
+                
+            </StackLayout>
+            
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>

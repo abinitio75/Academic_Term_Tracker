@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Term_Tracker.NotesPage"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+
+        <FlexLayout AlignContent="Center" Direction="Column" JustifyContent="SpaceBetween" Position="Relative" Padding="0,10,0,10">
+            <!-- allows scrolling if necessary -->
+            <ScrollView VerticalOptions="StartAndExpand">
+                
+                <StackLayout>
+                    <!-- notes editor -->
+                    <ScrollView>
+                        <Editor x:Name="courseNotes" Unfocused="CourseNotes_Unfocused" MaxLength="500" Placeholder="Enter Notes" AutoSize="TextChanges"/>                        
+                    </ScrollView>
+                    <!-- displays current character count and limit -->
+                    <Label Text="{Binding Source={x:Reference courseNotes}, Path=Text.Length, StringFormat='{0} of 500 Characters'}"/>
+                    
+                </StackLayout>
+                
+            </ScrollView>
+            <!-- button -->
+            <StackLayout Padding="10,0,10,0" HorizontalOptions="Center" FlexLayout.AlignSelf="Center">
+                <Button Text="Share" Clicked="BtnShare_Clicked" CornerRadius="30" HeightRequest="40" WidthRequest="100" Padding="10,10,10,10" HorizontalOptions="Center" />
+            </StackLayout>
+
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>

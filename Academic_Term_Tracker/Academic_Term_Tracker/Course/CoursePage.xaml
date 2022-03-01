@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Academic_Term_Tracker.CoursePage"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+
+        <FlexLayout Direction="Column" JustifyContent="SpaceBetween" AlignContent="Stretch" AlignItems="Center" Position="Relative">
+            <!-- display start and end date of selected course -->
+            <StackLayout Spacing="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray" FlexLayout.Basis="4%" FlexLayout.AlignSelf="Stretch">
+                <Label x:Name="courseStart" HorizontalOptions="CenterAndExpand" TextColor="BlanchedAlmond"/>
+                <Label x:Name="courseEnd" HorizontalOptions="CenterAndExpand" TextColor="BlanchedAlmond"/>
+            </StackLayout>
+            <!-- allows scrolling -->
+            <ScrollView VerticalScrollBarVisibility="Always" FlexLayout.Basis="57%" BackgroundColor="WhiteSmoke">
+
+                <StackLayout HeightRequest="500">
+                    <!-- displays all course information from list -->
+                    <ListView x:Name="course_detail" SeparatorColor="Black" SeparatorVisibility="Default" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="True">
+                                    <StackLayout Spacing="13" Padding="5" Margin="5">
+                                        <Label Text="{Binding CourseTitle}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CourseStart}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CourseEnd}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CourseStatus}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CourseNotify}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CIName}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CINumber}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding CIEmail}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding OATitle}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding OAType}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding OANotify}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding OAStart}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding OAEnd}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding PATitle}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding PAType}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding PANotify}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding PAStart}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                        <Label Text="{Binding PAEnd}" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+
+            </ScrollView>
+            <!-- buttons -->
+            <StackLayout Spacing="5" Padding="5" Margin="5" FlexLayout.AlignSelf="Center" FlexLayout.Basis="39%" BackgroundColor="Transparent">
+
+                <Button CornerRadius="30" Text="Notes" WidthRequest="150" HeightRequest="40" Clicked="Notes_Clicked"/>
+                <Button CornerRadius="30" Text="Edit Assessments" WidthRequest="200" HeightRequest="40" Clicked="EditAsmts_Clicked" x:Name="btnAsmt"/>
+                <Button CornerRadius="30" Text="Delete Assessment" WidthRequest="200" HeightRequest="40" Clicked="DeleteAsmt_Clicked"/>                
+                <Button CornerRadius="30" Text="Edit Course" WidthRequest="150" HeightRequest="40" Clicked="EditCourse_Clicked"/>
+                <Button CornerRadius="30" Text="Delete Course" WidthRequest="150" HeightRequest="40" Clicked="DeleteCourse_Clicked"/>
+
+            </StackLayout>
+
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>
