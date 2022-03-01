@@ -2,4 +2,4 @@
 
 Practice project for an academic term tracker.
 
-Uses SQLite as the database.
+Uses Xamarin Framework and SQLite as the database.
